@@ -7,11 +7,6 @@
 <body>
 	
 <script>
-	
-	function game() {
-		let playerScore = 0;
-		let computerScore = 0;
-		const games = 5;
 
 	function computerPlay() {
 		let playArray = ["rock", "paper", "scissors"];
@@ -24,33 +19,27 @@
 			return "You Tied! You both selected Rock!";
 		}
 		else if (playerSelection == "rock" && computerSelection == "scissors") {
-			playerScore += 1;
 			return "You Win! Rock beats Scissors";
 		}
 		else if (playerSelection == "rock" && computerSelection == "paper") {
-			computerScore += 1;
 			return "You Lose! Paper beats Rock";
 		}
 		else if (playerSelection == "scissors" && computerSelection == "scissors"){
 			return "You Tied! You both selected Scissors";
 		}
 		else if (playerSelection == "scissors" && computerSelection == "rock"){
-			computerScore += 1;
 			return "You Lose! Rock beats Scissors";
 		}
 		else if (playerSelection == "scissors" && computerSelection == "paper"){
-			playerScore += 1;
 			return "You Win! Scissors beats Paper";
 		}
 		else if (playerSelection == "paper" && computerSelection == "paper"){
 			return "You Tied! You both selected Paper";
 		}
 		else if (playerSelection == "paper" && computerSelection == "rock"){
-			playerScore += 1;
 			return "You Win! Paper beats Rock";
 		}
 		else if (playerSelection == "paper" && computerSelection == "scissors"){
-			computerScore += 1;
 			return "You Lose! Scissors beats Paper";
 		} 
 		else {
@@ -58,26 +47,40 @@
 		}
 	}
 
-	const playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-	const computerSelection = computerPlay();
+	function game() {
+		let playerScore = 0;
+		let computerScore = 0;
+		const games = 13;
 
-	for (let i = 0; i < games; i++) {
-		console.log("Round " + i + ":");
-		console.log(playRound(playerSelection, computerSelection));
+		for (var i=0; i < games; i++) {
+			playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
+			computerSelection = computerPlay();
+			round = playRound(playerSelection, computerSelection);
+
+			if (round.charAt(4) == "L") {
+				console.log(round);
+				computerScore++;
+			} else if (round.charAt(4) == "T") {
+				console.log(round);
+			} else {
+				console.log(round);
+				playerScore++;
+			}
+
+			if (playerScore === 5 || computerScore === 5) {
+				if (playerScore < computerScore){
+					console.log("Sorry, you lost the game! Let's play again");
+				} else if (playerScore > computerScore) {
+					console.log("Hooray! You won the game! Let's play again")
+				} else {
+					console.log("Wow! It's a tie! Let's play again");
+				}
+			}
+		}
 	}
 
-	console.log("Final Score: You = " + playerScore + ", Computer = " + computerScore);
-	
-	if (playerScore > computerScore) {
-		console.log("Hooray! You won the game!");
-	} else if (computerScore > playerScore) {
-		console.log("Sorry, you lost the game!");
-	} else {
-		console.log("Wow! It's a tie!");
-	}
-}
+	game();
 
-game();
 </script>
 </body>
 </html>
