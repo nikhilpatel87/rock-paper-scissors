@@ -31,8 +31,8 @@
 	    <p id="message"> <br></p>
 	</div>
 
-	<div id="restart">
-		<button>Restart</button>
+	<div id="reset">
+		<button>Reset</button>
 	</div>
 
 	
@@ -45,7 +45,7 @@
 	const rock = document.getElementById("rock");
 	const paper = document.getElementById("paper");
 	const scissors = document.getElementById("scissors");
-	const restart = document.getElementById("restart");
+	const reset = document.getElementById("reset");
 
 	rock.addEventListener('click', function(){
 	  playerSelect("Rock");
@@ -59,7 +59,7 @@
 	  playerSelect("Scissors");
 	})
 
-	restart.addEventListener('click', function(){
+	reset.addEventListener('click', function(){
 		location.reload();
 	})
 

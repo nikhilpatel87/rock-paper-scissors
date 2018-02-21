@@ -56,13 +56,13 @@ h1 {
   font-weight: bold;
 }
 
-#restart button {
+#reset button {
 	height: 40px;
 	width: 80px;
 	background-color: #abbaab;
 	font-weight: bold;
 }
 
-#restart button:hover {
+#reset button:hover {
 	transform: scale(1.1);
 }
